@@ -1,0 +1,17 @@
+{
+  "name": "msc-token-maker",
+  "description": "A utility to make JWT tokens for Microsoft Identity services using a certificate file.",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.6",
+    "esbuild": "^0.20.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "browserify-fs": "^1.0.0",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
