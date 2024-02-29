@@ -18,4 +18,7 @@ COPY --from=builder /app/build/app.js ./srv/app.js
 
 EXPOSE 8888
 
+LABEL org.opencontainers.image.source=https://github.com/icoseuk/msft-jwt-builder
+LABEL org.opencontainers.image.description="ICOSE’s Blue platform for compliance, risk and staff management in yacht charters."
+
 CMD ["node", "./srv/app.js"]
