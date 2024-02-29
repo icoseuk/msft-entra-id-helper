@@ -11,7 +11,7 @@ docker run -d -p 8888:8888 \
   -e MICROSOFT_CLIENT_ID=<your_client_id> \
   -e MICROSOFT_TENANT_ID=<your_tenant_id> \
   -v <path_to_your_pem_file>:/srv/certs/privatekey.pem \
-  ghcr.io/icoseuk/msft-jwt-builder
+  ghcr.io/icoseuk/msft-jwt-builder:latest
 ```
 
 In the above command:
