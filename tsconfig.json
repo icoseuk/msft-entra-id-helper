@@ -11,5 +11,5 @@
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true
     },
-    "include": ["src", ".eslintrc.cjs", "esbuild.js"],
+    "include": ["src", ".eslintrc.cjs", "esbuild.cjs"],
   }

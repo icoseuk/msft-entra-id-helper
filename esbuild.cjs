@@ -1,9 +1,9 @@
-import esbuild from 'esbuild'
+const esbuild = require('esbuild')
 
 esbuild.build({
-  entryPoints: ['./src/make-token.ts'],
+  entryPoints: ['./src/app.ts'],
   bundle: true,
   platform: 'node',
   target: 'esnext',
-  outfile: './build/make-token.js'
+  outfile: './build/app.js'
 }).catch(() => process.exit(1))

@@ -14,6 +14,8 @@ FROM node:20-alpine AS final
 
 WORKDIR /app
 
-COPY --from=builder /app/build/make-token.js ./build/make-token.js
+COPY --from=builder /app/build/app.js ./srv/app.js
 
-CMD ["node", "./build/make-token.js"]
+EXPOSE 8888
+
+CMD ["node", "./srv/app.js"]
