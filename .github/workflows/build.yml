@@ -1,10 +1,14 @@
 name: 🚀 Build and Publish
 
 on:
-    workflow_dispatch:
-    push:
-        branches:
-            - "main"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag'     
+        required: true
+  push:
+    tags:
+      - "v*.*.*"
 
 jobs:
     build-and-publish:
@@ -22,10 +26,20 @@ jobs:
                 registry: ghcr.io
                 username: ${{ github.repository_owner }}
                 password: ${{ secrets.GITHUB_TOKEN }}
+            - name: 🏷️ Set tag
+              id: tag
+              run: |
+                if [[ "${{ github.event_name }}" == "push" ]]; then
+                  echo "::set-output name=version::${{ github.ref_name }}"
+                else
+                  echo "::set-output name=version::${{ github.event.inputs.tag }}"
+                fi
             - name: 🏗️ Build and push
               uses: docker/build-push-action@v5
               with:
                   context: .
                   platforms: linux/amd64,linux/arm64
                   push: true
-                  tags: ghcr.io/icoseuk/msft-jwt-builder
+                  tags: |
+                    ghcr.io/icoseuk/msft-entra-id-helper:${{ steps.tag.outputs.version }}
+                    ghcr.io/icoseuk/msft-entra-id-helper:latest

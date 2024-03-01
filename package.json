@@ -1,6 +1,6 @@
 {
-  "name": "msc-token-maker",
-  "description": "A utility to make JWT tokens for Microsoft Identity services using a certificate file.",
+  "name": "msft-entra-id-helper",
+  "description": "A simple service to help with Microsoft Entra ID certificate-based authentication.",
   "version": "1.0.0",
   "scripts": {
     "build": "node esbuild.cjs"
@@ -8,17 +8,22 @@
   "dependencies": {
     "@types/jsonwebtoken": "^9.0.6",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "axios": "^1.6.7",
+    "browserify-fs": "^1.0.0",
+    "esbuild": "^0.20.1",
     "eslint": "^8.57.0",
     "eslint-config-standard-with-typescript": "^43.0.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
-    "typescript": "^5.3.3",
-    "esbuild": "^0.20.1",
-    "browserify-fs": "^1.0.0",
-    "dotenv": "^16.4.5",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.11"
   }
 }

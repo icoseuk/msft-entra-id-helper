@@ -1,24 +1,43 @@
-# 🚀 Microsoft Identity JWT Token Generator
+# 🔑 Microsoft Entra ID Helper
 
-This project contains a script for generating JSON Web Tokens (JWTs) for Microsoft Identity services using a private key. The script is written in TypeScript and bundled for browser usage using esbuild. 
+This project contains a script for generating JSON Web Tokens (JWTs) for Microsoft Identity services using a private key. The script is written in TypeScript and bundled for browser usage using esbuild.
 
-## Deployment Instructions
+## Table of Contents
 
-1. Run the Docker container with the necessary environment variables and volume binding. Replace <path_to_your_pem_file> with the path to your .pem file on your local machine:
+- [Deployment](#deployment)
+- [API Endpoints](#api-endpoints)
+
+
+## Deployment
+
+1. Make sure you have Docker installed on your machine. If not, you can download it from the [official website](https://www.docker.com/products/docker-desktop).
+1. Run the Docker container using the following command:
 
 ```dockerfile
-docker run -d -p 8888:8888 \
-  -e MICROSOFT_CLIENT_ID=<your_client_id> \
-  -e MICROSOFT_TENANT_ID=<your_tenant_id> \
-  -v <path_to_your_pem_file>:/srv/certs/privatekey.pem \
-  ghcr.io/icoseuk/msft-jwt-builder:latest
+docker run -d -p 80:8888 ghcr.io/icoseuk/msft-entra-id-helper:latest
 ```
 
 In the above command:
 
-- `-d` runs the container in detached mode (in the background).
-- `-p` 8888:8888 maps port 8888 of the container to port 8888 on the host machine.
-- `-e` sets the environment variables MICROSOFT_CLIENT_ID and MICROSOFT_TENANT_ID.
-- `-v` binds the volume <path_to_your_pem_file> on the host to /srv/certs/privatekey.pem in the container.
+- `-p 80:8888` maps port `8888` of the container to port `80` on the host machine, making the application accessible at `http://localhost/generate-token`. You can modify the host port as needed as long as it does not conflict with other services running on the host machine.
 
-3. The application should now be running and accessible at http://localhost:8888/generate-token.
+3. The application should now be running and accessible at http://localhost/.
+
+## API Endpoints
+
+The following endpoints are available:
+
+- `/generate-access-token`: Generates a Microsoft Entra ID access token using certificate credentials.
+  - Method: `POST`
+  - Headers:
+    - `Content-Type: application/www-form-urlencoded`
+  - Body:
+    - `client_id`: The client ID of the application.
+    - `tenant_id`: The tenant ID of the application.
+    - `certificate_thumbprint`: The thumbprint of the certificate.
+    - `certificate`: The certificate file in PEM format (file upload).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+```

@@ -18,7 +18,8 @@ COPY --from=builder /app/build/app.js ./srv/app.js
 
 EXPOSE 8888
 
-LABEL org.opencontainers.image.source=https://github.com/icoseuk/msft-jwt-builder
-LABEL org.opencontainers.image.description="ICOSE’s Blue platform for compliance, risk and staff management in yacht charters."
+LABEL org.opencontainers.image.source=https://github.com/icoseuk/msft-entra-id-helper
+LABEL org.opencontainers.image.description="A simple service to help with Microsoft Entra ID certificate-based authentication."
+LABEL org.opencontainers.image.authors="ICOSE Ltd."
 
 CMD ["node", "./srv/app.js"]
