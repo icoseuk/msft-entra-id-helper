@@ -1,6 +1,8 @@
 # 🔑 Microsoft Entra ID Helper
 
-This project contains a script for generating JSON Web Tokens (JWTs) for Microsoft Identity services using a private key. The script is written in TypeScript and bundled for browser usage using esbuild.
+A simple service to help with Microsoft Entra ID certificate-based authentication.
+
+[![🚀 Build and Publish](https://github.com/icoseuk/msft-entra-id-helper/actions/workflows/build.yml/badge.svg)](https://github.com/icoseuk/msft-entra-id-helper/actions/workflows/build.yml)
 
 ## Table of Contents
 
@@ -40,4 +42,3 @@ The following endpoints are available:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
-```
