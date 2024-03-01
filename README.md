@@ -40,7 +40,7 @@ The following endpoints are available:
     - `tenant_id`: The tenant ID of the application.
     - `certificate_thumbprint`: The thumbprint of the certificate.
     - `certificate`: The certificate file in PEM format (file upload).
-  - Response: The respose will be a JSON object containing the access token and its expiry date, or an error message if the request fails. Check the [relevant Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#request-an-access-token-with-a-certificate-credential) for more details on the response object.
+  - Response: The respose will be a JSON object containing the access token and its expiry date, or an error message if the request fails. Check the [relevant Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#successful-response-2) for more details on the response object.
 
 ## Development
 
