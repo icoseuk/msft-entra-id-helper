@@ -39,6 +39,12 @@ The following endpoints are available:
     - `certificate_thumbprint`: The thumbprint of the certificate.
     - `certificate`: The certificate file in PEM format (file upload).
 
+## Development
+
+This repository is configured for development using [Visual Studio Code](https://code.visualstudio.com) and  [Dev Containers](https://code.visualstudio.com/docs/remote/containers) with all the necessary dependencies and debugging scripts. You can read up on the official documentation on how to set up your development environment using Dev Containers, or simply click the badge below to launch GitHub Codespaces.
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/icoseuk/msft-entra-id-helper)
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
