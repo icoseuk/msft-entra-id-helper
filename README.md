@@ -34,7 +34,7 @@ The following endpoints are available:
 - `/generate-access-token`: Generates a Microsoft Entra ID access token using certificate credentials.
   - Method: `POST`
   - Headers:
-    - `Content-Type: application/www-form-urlencoded`
+    - `Content-Type: multipart/form-data`
   - Body:
     - `client_id`: The client ID of the application.
     - `tenant_id`: The tenant ID of the application.
