@@ -8,6 +8,8 @@ A simple service to help with Microsoft Entra ID certificate-based authenticatio
 
 - [Deployment](#deployment)
 - [API Endpoints](#api-endpoints)
+- [Development](#development)
+- [License](#license)
 
 
 ## Deployment
