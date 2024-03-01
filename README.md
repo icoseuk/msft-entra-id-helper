@@ -1,6 +1,6 @@
 # 🔑 Microsoft Entra ID Helper
 
-A simple service to help with Microsoft Entra ID certificate-based authentication.
+A simple service to help with [Microsoft Entra ID certificate-based authentication](https://learn.microsoft.com/en-us/entra/identity-platform/certificate-credentials).
 
 [![🚀 Build and Publish](https://github.com/icoseuk/msft-entra-id-helper/actions/workflows/build.yml/badge.svg)](https://github.com/icoseuk/msft-entra-id-helper/actions/workflows/build.yml)
 
