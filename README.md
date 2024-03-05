@@ -39,7 +39,8 @@ The following endpoints are available:
     - `client_id`: The client ID of the application.
     - `tenant_id`: The tenant ID of the application.
     - `certificate_thumbprint`: The thumbprint of the certificate.
-    - `certificate`: The certificate file in PEM format (file upload).
+    - `certificate`: The certificate file (file upload).
+    - `private_key`: The private key file (file upload).
   - Response: The respose will be a JSON object containing the access token and its expiry date, or an error message if the request fails. Check the [relevant Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#successful-response-2) for more details on the response object.
 
 ## Development

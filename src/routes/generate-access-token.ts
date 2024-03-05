@@ -3,6 +3,12 @@ import getMicrosoftEntraIdAccessToken from '../utils/get-microsoft-entra-id-acce
 import generateCertificateCredential from '../utils/generate-certificate-credential'
 import { AxiosError } from 'axios'
 
+declare module 'express-serve-static-core' {
+  interface Request {
+    files: Record<string, Express.Multer.File[]>
+  }
+}
+
 // eslint-disable-next-line @typescript-eslint/no-misused-promises
 const generateAccessToken: RequestHandler = async (req: Request, res: Response) => {
   try {
@@ -12,11 +18,20 @@ const generateAccessToken: RequestHandler = async (req: Request, res: Response) 
       client_id: string
       certificate_thumbprint: string
     }
-    const certificate = req.file
+    const certificate = req.files?.certificate[0] as { buffer: Buffer }
+    const privateKey = req.files?.private_key[0] as { buffer: Buffer }
 
-    if (tenant_id === undefined || client_id === undefined || certificate === undefined || certificate_thumbprint === undefined) {
+    if (tenant_id === undefined ||
+        client_id === undefined ||
+        certificate === undefined ||
+        certificate_thumbprint === undefined ||
+        privateKey === undefined
+    ) {
       res.status(400).json({ error: 'Missing tenant_id, client_id, certificate_thumbprint or certificate' })
     }
+
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    // res.send(generateCertificateCredential(client_id, tenant_id, certificate_thumbprint, certificate.buffer.toString('utf-8')))
 
     const response = await getMicrosoftEntraIdAccessToken({
       certificateCredential: generateCertificateCredential(
@@ -24,9 +39,12 @@ const generateAccessToken: RequestHandler = async (req: Request, res: Response) 
         tenant_id,
         certificate_thumbprint,
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        certificate!.buffer.toString('utf-8')
+        certificate.buffer.toString('utf-8'),
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        privateKey.buffer.toString('utf-8')
       ),
-      tenantId: tenant_id
+      tenantId: tenant_id,
+      clientId: client_id
     })
 
     // Forward the status, headers, and body to the client

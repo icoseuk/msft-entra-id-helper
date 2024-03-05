@@ -4,6 +4,7 @@ import qs from 'querystring'
 interface GetMicrosoftEntraIdAccessTokenType {
   certificateCredential: string
   tenantId: string
+  clientId: string
 }
 
 /**
@@ -18,14 +19,14 @@ interface GetMicrosoftEntraIdAccessTokenType {
  * @throws AxiosError If the request fails.
  */
 const getMicrosoftEntraIdAccessToken = async (
-  { certificateCredential, tenantId }: GetMicrosoftEntraIdAccessTokenType
+  { certificateCredential, tenantId, clientId }: GetMicrosoftEntraIdAccessTokenType
 ): Promise<AxiosResponse> => await axios.post(
     `https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`,
     qs.stringify({
       client_assertion_type: 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
       client_assertion: certificateCredential,
       grant_type: 'client_credentials',
-      scope: 'https://graph.microsoft.com/.default'
+      scope: `${clientId}/.default`
     }),
     {
       headers: {
