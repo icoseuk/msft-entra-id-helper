@@ -23,7 +23,7 @@ docker run -d -p 80:8888 ghcr.io/icoseuk/msft-entra-id-helper:latest
 
 In the above command:
 
-- `-p 80:8888` maps port `8888` of the container to port `80` on the host machine, making the application accessible at `http://localhost/generate-token`. You can modify the host port as needed as long as it does not conflict with other services running on the host machine.
+- `-p 80:8888` maps port `8888` of the container to port `80` on the host machine, making the application accessible at `http://localhost/generate-access-token`. You can modify the host port as needed as long as it does not conflict with other services running on the host machine.
 
 3. The application should now be running and accessible at http://localhost/.
 
